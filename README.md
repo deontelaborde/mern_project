@@ -43,8 +43,10 @@ Coming Soon...
 
 ---
 
-### **Trello Board**
+### **Resources**
 
 [Trello](https://trello.com/b/Yn3jscn4/mwdbeats-project)
+[FrontEnd_Diagram](https://drive.google.com/file/d/1Yj254PERuMRyTpKyg_wMUxo7EeUiILIP/view?usp=sharing)
+[BackEnd_Diagram](https://drive.google.com/file/d/11xFvj6vadPRHm6D9P9Tc00HaAn_RFnRv/view?usp=sharing)
 
 ---
