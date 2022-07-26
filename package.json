@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/deontelaborde/mern_project#readme",
   "dependencies": {
-    "mongoose": "^6.4.7"
+    "express": "^4.18.1",
+    "mongoose": "^6.4.7",
+    "mongosh": "^0.0.1"
   }
 }

@@ -13,7 +13,7 @@ const main = async () => {
     {
       name: 'Andrew Downer',
       location: 'Atlanta, GA',
-      url: ''
+      url: 'https://www.instagram.com/__pyromaniacs__/'
     },
     {
       name: 'Darien LaBorde',
@@ -32,7 +32,7 @@ const main = async () => {
     }
   ]
 
-  await Producer.insertMany(publishers)
+  await Producer.insertMany(producers)
   console.log('Created producers!')
 }
 const run = async () => {

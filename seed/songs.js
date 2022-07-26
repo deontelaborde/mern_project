@@ -23,7 +23,7 @@ const main = async () => {
       title: 'Everytime',
       song_length: '2:05',
       genre: ('R&B', 'Hip-Hop'),
-      producer: ('Deonte LaBorde', 'Darien LaBorde', 'Leon Lewis'),
+      producer: 'Deonte LaBorde, Darien LaBorde, Leon Lewis',
       produced_date: '2021',
       producer_id: deonteLaBorde[0]._id
     },
@@ -71,7 +71,7 @@ const main = async () => {
       title: 'Mexico',
       song_length: '2:20',
       genre: 'R&B',
-      producer: ('Andrew Downer', 'Darien LaBorde'),
+      producer: 'Andrew Downer, Darien LaBorde',
       produced_date: '2021',
       producer_id: andrewDowner[0]._id
     },
@@ -79,7 +79,7 @@ const main = async () => {
       title: 'Love Me Again',
       song_length: '2:38',
       genre: 'R&B',
-      producer: ('Deonte LaBorde', 'Andrew Donwer', 'Leon Lewis'),
+      producer: 'Deonte LaBorde, Andrew Donwer, Leon Lewis',
       produced_date: '2021',
       producer_id: deonteLaBorde[0]._id
     },
@@ -94,7 +94,7 @@ const main = async () => {
   ]
 
   await Song.insertMany(songs)
-  console.log('Created songs with publishers!')
+  console.log('Created songs with producers!')
 }
 const run = async () => {
   await main()
