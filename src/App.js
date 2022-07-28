@@ -1,11 +1,18 @@
 import React, { userState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
 
-return (
-  <div className="App">
-    <header>{/* Import Nav here */}</header>
-    <main>
-      <Routes></Routes>
-    </main>
-  </div>
-)
+const App = () => {
+  return (
+    <div className="App">
+      <header>{/* Import Nav here */}</header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
+    </div>
+  )
+}
+
+export default App
