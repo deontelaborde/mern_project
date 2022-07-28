@@ -1,4 +1,4 @@
-const Song = require('../models/song')
+const { Song } = require('../models')
 
 const createSong = async (req, res) => {
   try {
@@ -8,8 +8,15 @@ const createSong = async (req, res) => {
       song
     })
   } catch (error) {
-    return res.stauts(500).json({ error: error.message })
+    return res.status(500).json({ error: error.message })
   }
 }
-
-module.exports = { createSong }
+const getAllSongs = async (req, res) => {
+  try {
+    const songs = await Song.find({})
+    return res.status(200).json({ songs })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+module.exports = { createSong, getAllSongs }

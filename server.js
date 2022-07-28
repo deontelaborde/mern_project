@@ -12,11 +12,11 @@ app.use(cors())
 app.use(express.json())
 app.use(logger('dev'))
 
+app.use('/api', routes)
+
 app.get('/', (req, res) => {
   res.send('This is root!')
 })
-
-app.use('/api', routes)
 
 app.get('/songs', async (req, res) => {
   const songs = await Song.find({})
