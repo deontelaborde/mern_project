@@ -8,4 +8,6 @@ router.post('/uploadsong', controllers.createSong)
 
 router.get('/songs', controllers.getAllSongs)
 
+router.get('/songs/:id', controllers.getSongById)
+
 module.exports = router
