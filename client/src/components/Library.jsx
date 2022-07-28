@@ -5,7 +5,7 @@ import axios from "axios"
 const Library = () => {
   let navigate = useNavigate ()
   const showSong = (song) => {
-    navigate(`${song.id}`)
+    navigate(`${song._id}`)
   }
   const [songlist, setSonglist] = useState([])
 
@@ -24,6 +24,7 @@ const Library = () => {
         <div className="song-card" onClick={() => showSong(song)} key={song._id}>
           
           <h3>{song.title}</h3>
+          <p4>Produced By: {song.producer}</p4>
         </div>
       ))}
     </div>

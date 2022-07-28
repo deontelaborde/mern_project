@@ -5,7 +5,7 @@ import axios from "axios"
 const Team = () => {
   let navigate = useNavigate ()
   const showProducer = (producer) => {
-    navigate(`${producer.id}`)
+    navigate(`${producer._id}`)
   }
   const [producerlist, setProducerlist] = useState([])
 
