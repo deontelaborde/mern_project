@@ -41,6 +41,7 @@ const getAllProducers = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
 const getProducerById = async (req, res) => {
   try {
     const { id } = req.params
