@@ -12,6 +12,8 @@ router.get('/songs/:id', controllers.getSongById)
 
 router.put('/songs/:id', controllers.updateSong)
 
+router.delete('/songs/:id', controllers.deleteSong)
+
 router.get('/producers', controllers.getAllProducers)
 
 router.get('/producers/:id', controllers.getProducerById)
