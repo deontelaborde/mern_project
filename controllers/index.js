@@ -33,6 +33,18 @@ const getSongById = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
+const updateSong = async (req, res) => {
+  try {
+    const song = await Song.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+    res.status(200).json(song)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const getAllProducers = async (req, res) => {
   try {
     const producers = await Producer.find({})
@@ -58,6 +70,7 @@ module.exports = {
   createSong,
   getAllSongs,
   getSongById,
+  updateSong,
   getAllProducers,
   getProducerById
 }
