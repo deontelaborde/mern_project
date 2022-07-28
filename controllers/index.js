@@ -45,6 +45,19 @@ const updateSong = async (req, res) => {
   }
 }
 
+const deleteSong = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deletedSong = await Song.findByIdAndDelete(id)
+    if (deletedSong) {
+      res.status(200).send('Song has been deleted')
+    }
+    throw new Error('Song not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const getAllProducers = async (req, res) => {
   try {
     const producers = await Producer.find({})
@@ -71,6 +84,7 @@ module.exports = {
   getAllSongs,
   getSongById,
   updateSong,
+  deleteSong,
   getAllProducers,
   getProducerById
 }
