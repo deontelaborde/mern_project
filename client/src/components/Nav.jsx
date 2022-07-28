@@ -8,6 +8,7 @@ const Nav = () => {
       <h4>MWDBeats</h4>
       <div>
         <Link to="/">Home</Link>
+        <Link to="/library">Library</Link>
       </div>
     </nav>
   )
