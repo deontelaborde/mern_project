@@ -1,4 +1,5 @@
 const { Song } = require('../models')
+const { Producer } = require('../models')
 
 const createSong = async (req, res) => {
   try {
@@ -32,5 +33,16 @@ const getSongById = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-
-module.exports = { createSong, getAllSongs, getSongById }
+const getProducerById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const producer = await Producer.findById(id)
+    if (producer) {
+      return res.status(200).json({ producer })
+    }
+    return res.status(404).send('Producer with stated ID does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+module.exports = { createSong, getAllSongs, getSongById, getProducerById }
