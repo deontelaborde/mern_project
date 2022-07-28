@@ -10,4 +10,6 @@ router.get('/songs', controllers.getAllSongs)
 
 router.get('/songs/:id', controllers.getSongById)
 
+router.get('/producers/:id', controllers.getProducerById)
+
 module.exports = router

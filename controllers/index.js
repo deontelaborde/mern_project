@@ -33,6 +33,14 @@ const getSongById = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+const getAllProducers = async (req, res) => {
+  try {
+    const producers = await Producer.find({})
+    return res.status(200).json({ producers })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 const getProducerById = async (req, res) => {
   try {
     const { id } = req.params
@@ -45,4 +53,10 @@ const getProducerById = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-module.exports = { createSong, getAllSongs, getSongById, getProducerById }
+module.exports = {
+  createSong,
+  getAllSongs,
+  getSongById,
+  getAllProducers,
+  getProducerById
+}
