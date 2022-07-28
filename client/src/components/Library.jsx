@@ -21,7 +21,7 @@ const Library = () => {
   return (
     <div className="list">
       {songlist.map((song) => (
-        <div className="song-card" onClick={() => showSong(song)} key={song.id}>
+        <div className="song-card" onClick={() => showSong(song)} key={song._id}>
           
           <h3>{song.title}</h3>
         </div>

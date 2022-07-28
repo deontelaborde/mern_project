@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Nav from './components/Nav'
 import Library from './components/Library'
+import Team from './components/Team'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<Library />} />
+          <Route path="/meet-the-team" element={<Team />} />
         </Routes>
       </main>
     </div>
