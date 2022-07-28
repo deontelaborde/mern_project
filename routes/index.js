@@ -10,6 +10,8 @@ router.get('/songs', controllers.getAllSongs)
 
 router.get('/songs/:id', controllers.getSongById)
 
+router.put('/songs/:id', controllers.updateSong)
+
 router.get('/producers', controllers.getAllProducers)
 
 router.get('/producers/:id', controllers.getProducerById)
