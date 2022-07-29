@@ -6,6 +6,7 @@ const Library = () => {
   let navigate = useNavigate ()
   const showSong = (song) => {
     navigate(`${song._id}`)
+    console.log(`${song._id}`)
   }
   const [songlist, setSonglist] = useState([])
 
@@ -24,7 +25,7 @@ const Library = () => {
         <div className="song-card" onClick={() => showSong(song)} key={song._id}>
           
           <h3>{song.title}</h3>
-          <p4>Produced By: {song.producer}</p4>
+          <p>Produced By: {song.producer}</p>
         </div>
       ))}
     </div>
