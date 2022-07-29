@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', (req, res) => res.send('This is root!'))
 
-router.post('/uploadsong', controllers.createSong)
+router.post('/songs', controllers.createSong)
 
 router.get('/songs', controllers.getAllSongs)
 

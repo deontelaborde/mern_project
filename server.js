@@ -1,5 +1,4 @@
 const express = require('express')
-const routes = require('./routes')
 const cors = require('cors')
 const logger = require('morgan')
 const PORT = process.env.PORT || 3001
@@ -12,15 +11,12 @@ app.use(cors())
 app.use(express.json())
 app.use(logger('dev'))
 
+const routes = require('./routes')
+
 app.use('/api', routes)
 
 app.get('/', (req, res) => {
   res.send('This is root!')
-})
-
-app.get('/songs', async (req, res) => {
-  const songs = await Song.find({})
-  res.json(songs)
 })
 
 app.get('/songs/:id', async (req, res) => {

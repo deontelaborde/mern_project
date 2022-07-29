@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 function AddSongForm() {
 
@@ -13,17 +14,29 @@ const initialState = {
 }
 
 const [formState, setFormState] = useState(initialState)
+const [addedSong, setAddedSong] = useState()
+
+
+const addSong = async () => {
+    const addedSong = await axios.post(`http://localhost:3001/api/songs`,formState)
+    console.log(addedSong)
+    setAddedSong(addedSong)
+}
 
 
 const handleChange = event => {
   setFormState({...formState, [event.target.id]: event.target.value})
 }
-const handleSubmit = event => {
+const handleSubmit = async (event) => {
   event.preventDefault()
   console.log(formState)
+  
+  addSong()
+
   setFormState(initialState)
 
 }
+
 return (
   <form onSubmit={handleSubmit}>
     <label htmlFor = 'title'>Title:</label>
@@ -42,23 +55,22 @@ return (
     value={formState.song_length}
     />
 
-    <label htmlFor = 'genre'>Genre:</label>
-    <select id="genre" onChange={handleChange} value={formState.genre}>
-    <option value="rnb">R&B</option>
-    <option value="hip-hop">Hip-Hop</option>
-    <option value="rap">Rap</option>
-    </select>
+  <label htmlFor = 'genre'>Genre:</label>
+    <input
+    type="text"
+    id="genre"
+    onChange={handleChange}
+    value={formState.genre}
+    />
 
     <label htmlFor = 'producer'>Producer:</label>
-    <select id="producer" onChange={handleChange} value={formState.producer}>
-      <option value="Deonte LaBorde">Deonte LaBorde</option>
-      <option value="Darien LaBorde">Darien LaBorde</option>
-     <option value="Josiah Yankson">Josiah Yankson</option>
-     <option value="Andrew Downer">Andrew Downer</option>
-     <option value="Leon Lewis">Leon Lewis</option>
-     
-     </select>
-
+    <input
+    type="text"
+    id="producer"
+    onChange={handleChange}
+    value={formState.producer}
+    />
+  
      <label htmlFor = 'produced_date'>Produced Date:</label>
     <input
     type="text"
