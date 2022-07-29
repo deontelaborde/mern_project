@@ -1,4 +1,4 @@
-# mwdbeats-website
+# MWDBeats-Website
 
 ## Date: 7/25/2022
 
@@ -46,7 +46,9 @@ Functionality of the website will be the following:
 
 Link will be provided TBD
 
-Coming Soon...
+---
+
+### **_Coming Soon..._**
 
 - Music Player
 - Media File Upload Functionality
