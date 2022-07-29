@@ -23,7 +23,13 @@ const Team = () => {
       {producerlist.map((producer) => (
         <div className="producer-card" onClick={() => showProducer(producer)} key={producer._id}>
           
+          
           <h3>{producer.name}</h3>
+          <p>{producer.location}</p>
+
+          <a href={producer.url}>
+          <button>Instagram</button>
+          </a>
         </div>
       ))}
     </div>
