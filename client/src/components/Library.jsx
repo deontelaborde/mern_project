@@ -29,7 +29,7 @@ const Library = () => {
           <p>Produced By: {song.producer}</p>
         </div>
       ))}
-      <Link to='/new'>Add Song</Link>
+      <Link to='/new-song'>Add Song</Link>
     </div>
     
   )

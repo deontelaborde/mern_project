@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const SongDetails = () => {
 let { id } = useParams()
@@ -35,6 +36,8 @@ return (
         <p>Genre: {selectedSong.genre}</p>
         <p>Produced: {selectedSong.produced_date}</p>
       </div>
+      <Link to='/song/:id'>Update Song</Link>
+    
     </div>
 )
 

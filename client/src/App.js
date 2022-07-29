@@ -7,8 +7,7 @@ import Library from './components/Library'
 import Team from './components/Team'
 import SongDetails from './components/SongDetails'
 import AddSongForm from './components/AddSongForm'
-import DeleteSong from './components/DeleteSong'
-import UpdateSong from './components/UpdateSong'
+import UpdateSongForm from './components/UpdateSong'
 
 function App() {
   return (
@@ -20,8 +19,8 @@ function App() {
           <Route path="/library" element={<Library />} />
           <Route path="/meet-the-team" element={<Team />} />
           <Route path="/library/:id" element={<SongDetails />} />
-          <Route path="new" element={<AddSongForm />} />
-          <Route path="/library/:id/update" element={DeleteSong} />
+          <Route path="new-song" element={<AddSongForm />} />
+          <Route path="/song/:id" element={<UpdateSongForm />} />
         </Routes>
       </main>
     </div>
