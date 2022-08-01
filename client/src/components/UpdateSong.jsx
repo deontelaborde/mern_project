@@ -21,14 +21,14 @@ const initialState = {
 
 
 const [formState, setFormState] = useState(initialState)
-const [updatedSong, setUpdatedSong] = useState()
+
 
 
 const updateSong = async () => {
   
   const updatedSong = await axios.put(`http://localhost:3001/api/songs/${id}`,formState)
   console.log(updatedSong)
-  setUpdatedSong(updatedSong)
+
 }
 
 
@@ -40,6 +40,7 @@ const handleSubmit = async (event) => {
   console.log(formState)
   
   updateSong()
+  navigate(`/library`)
 }
 
 return (

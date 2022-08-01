@@ -1,11 +1,11 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link} from 'react-router-dom'
 
 const SongDetails = () => {
 let { id } = useParams()
-
+const navigate = useNavigate()
 const [selectedSong,setSelectedSong] = useState([])
 
 useEffect(() => {
@@ -22,6 +22,8 @@ useEffect(() => {
 
 const deleteSong = (id) => {
   axios.delete(`http://localhost:3001/api/songs/${id}`);
+  navigate('/library')
+
   
 };
 
@@ -44,7 +46,7 @@ return (
       
       <Link to={`/song/${id}/update`}><button>Update Song</button></Link>
 
-      <Link to= '/library'> <button type='button' onClick={() => deleteSong(selectedSong._id)}>Delete Song</button></Link>
+      <button type='button' onClick={() => deleteSong(selectedSong._id)}>Delete Song</button>
     
     </div>
 )

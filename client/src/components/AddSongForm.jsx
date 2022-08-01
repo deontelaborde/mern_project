@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function AddSongForm() {
+
+  const navigate = useNavigate()
 
 const initialState = {
   title: '',
@@ -14,13 +17,13 @@ const initialState = {
 }
 
 const [formState, setFormState] = useState(initialState)
-const [addedSong, setAddedSong] = useState()
+
 
 
 const addSong = async () => {
     const addedSong = await axios.post(`http://localhost:3001/api/songs`,formState)
     console.log(addedSong)
-    setAddedSong(addedSong)
+    
 }
 
 
@@ -32,6 +35,7 @@ const handleSubmit = async (event) => {
   console.log(formState)
   
   addSong()
+  navigate('/library')
 
   setFormState(initialState)
 
