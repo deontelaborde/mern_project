@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 const SongDetails = () => {
 let { id } = useParams()
@@ -13,12 +13,17 @@ useEffect(() => {
 
   async function getSongDetails() {
     const selectedSong = await axios.get(`http://localhost:3001/api/songs/${id}`)
-    console.log(selectedSong.data.song)
+    // console.log(selectedSong.data.song)
     setSelectedSong(selectedSong.data.song)
     
   }
   getSongDetails()
-}, [])
+}, [id])
+
+const deleteSong = (id) => {
+  axios.delete(`http://localhost:3001/api/songs/${id}`);
+  
+};
 
 return (
   <div className="detail">
@@ -36,7 +41,10 @@ return (
         <p>Genre: {selectedSong.genre}</p>
         <p>Produced: {selectedSong.produced_date}</p>
       </div>
-      <Link to='/song/:id'>Update Song</Link>
+      
+      <Link to='/song/:id'><button>Update Song</button></Link>
+
+      <Link to= '/library'> <button type='button' onClick={() => deleteSong(selectedSong._id)}>Delete Song</button></Link>
     
     </div>
 )
