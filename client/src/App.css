@@ -14,7 +14,7 @@
 }
 
 .App-header,.App-footer {
-  background-color: #c8c344;
+  background-color: #140359;
   min-height: 8vh;
   display: flex;
   flex-direction: column;
@@ -24,13 +24,27 @@
   color: rgb(255, 255, 255);
 }
 
-.App-header {
-  font-style: italic;
+
+.navbar {
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 1em;
+  font-family: 'Georgia';
 }
 .App-footer {
   margin-top: 10vh;
   min-height: 3vh;
   font-size:  2vmin;
+}
+button {
+  padding: 0.5em 2em;
+  background-color: white;
+  font-family: 'Georgia';
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1em;
 }
 
 .App-link {
