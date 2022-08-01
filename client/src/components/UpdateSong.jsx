@@ -1,16 +1,11 @@
 import React, {useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useNavigate } from "react-router-dom"
 
 function UpdateSongForm () {
 
-  let navigate = useNavigate ()
-  const showSong = (song) => {
-    navigate(`${song._id}`)
-    console.log(`${song._id}`)
-  }
-
+  const navigate = useNavigate ()
+ 
 let { id } = useParams()
 
 
@@ -45,9 +40,6 @@ const handleSubmit = async (event) => {
   console.log(formState)
   
   updateSong()
-
-  setFormState(initialState)
-
 }
 
 return (

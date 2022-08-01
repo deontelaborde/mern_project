@@ -42,7 +42,7 @@ return (
         <p>Produced: {selectedSong.produced_date}</p>
       </div>
       
-      <Link to='/song/:id'><button>Update Song</button></Link>
+      <Link to={`/song/${id}/update`}><button>Update Song</button></Link>
 
       <Link to= '/library'> <button type='button' onClick={() => deleteSong(selectedSong._id)}>Delete Song</button></Link>
     

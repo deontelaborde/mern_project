@@ -20,7 +20,7 @@ function App() {
           <Route path="/meet-the-team" element={<Team />} />
           <Route path="/library/:id" element={<SongDetails />} />
           <Route path="new-song" element={<AddSongForm />} />
-          <Route path="/song/:id" element={<UpdateSongForm />} />
+          <Route path="/song/:id/update" element={<UpdateSongForm />} />
         </Routes>
       </main>
     </div>
