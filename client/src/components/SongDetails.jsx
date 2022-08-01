@@ -38,7 +38,7 @@ return (
       <div className="info-wrapper">
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
           <h3>Prod. by: {selectedSong.producer}</h3>
-          <h3> {selectedSong.song_length}</h3>
+          <h3>Song Length: {selectedSong.song_length}</h3>
         </div>
         <p>Genre: {selectedSong.genre}</p>
         <p>Produced: {selectedSong.produced_date}</p>
