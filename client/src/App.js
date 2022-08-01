@@ -23,6 +23,7 @@ function App() {
           <Route path="/song/:id/update" element={<UpdateSongForm />} />
         </Routes>
       </main>
+      <footer className="App-footer">MWDENT © 2022</footer>
     </div>
   )
 }
