@@ -7,16 +7,14 @@ const Library = () => {
   let navigate = useNavigate ()
   const showSong = (song) => {
     navigate(`${song._id}`)
-    console.log(`${song._id}`)
   }
   const [songlist, setSonglist] = useState([])
-
+  
+  async function getSonglist() {
+    const songlist = await axios.get(`http://localhost:3001/api/songs`)
+    setSonglist(songlist.data.songs)
+  }
   useEffect(() => {
-    async function getSonglist() {
-      const songlist = await axios.get(`http://localhost:3001/api/songs`)
-      console.log(songlist.data.songs)
-      setSonglist(songlist.data.songs)
-    }
     getSonglist()
   }, [])
 

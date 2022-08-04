@@ -8,23 +8,20 @@ let { id } = useParams()
 const navigate = useNavigate()
 const [selectedSong,setSelectedSong] = useState([])
 
+async function getSongDetails() {
+  const selectedSong = await axios.get(`http://localhost:3001/api/songs/${id}`)
+
+  setSelectedSong(selectedSong.data.song)
+}
+
 useEffect(() => {
-  
-
-  async function getSongDetails() {
-    const selectedSong = await axios.get(`http://localhost:3001/api/songs/${id}`)
-    // console.log(selectedSong.data.song)
-    setSelectedSong(selectedSong.data.song)
-    
-  }
   getSongDetails()
-}, [id])
+})
 
-const deleteSong = (id) => {
-  axios.delete(`http://localhost:3001/api/songs/${id}`);
+const deleteSong = async (id) => {
+  await axios.delete(`http://localhost:3001/api/songs/${id}`)
+
   navigate('/library')
-
-  
 };
 
 return (
@@ -46,8 +43,10 @@ return (
       
       <Link to={`/song/${id}/update`}><button>Update Song</button></Link>
 
-      <button type='button' onClick={() => deleteSong(selectedSong._id)}>Delete Song</button>
-    
+      
+
+        <button type='button' onClick={() => deleteSong(selectedSong._id)}>Delete Song</button>
+  
     </div>
 )
 

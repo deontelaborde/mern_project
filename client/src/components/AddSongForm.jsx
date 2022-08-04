@@ -32,12 +32,15 @@ const handleChange = event => {
 }
 const handleSubmit = async (event) => {
   event.preventDefault()
-  console.log(formState)
-  
+
+
   addSong()
-  navigate('/library')
 
   setFormState(initialState)
+  
+
+  navigate('/library')
+
 
 }
 
