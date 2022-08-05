@@ -24,22 +24,22 @@ const addSong = async () => {
     const addedSong = await axios.post(`http://localhost:3001/api/songs`,formState)
     console.log(addedSong)
     
-}
-
-
-const handleChange = event => {
-  setFormState({...formState, [event.target.id]: event.target.value})
-}
-const handleSubmit = async (event) => {
-  event.preventDefault()
-
-
-  addSong()
-
-  setFormState(initialState)
+    navigate('/library')
+  }
   
-
-  navigate('/library')
+  
+  const handleChange = event => {
+    setFormState({...formState, [event.target.id]: event.target.value})
+  }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    
+    
+    addSong()
+  
+  
+  
+  setFormState(initialState)
 
 
 }

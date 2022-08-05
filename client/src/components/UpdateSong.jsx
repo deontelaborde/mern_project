@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -19,9 +19,18 @@ const initialState = {
 
 }
 
-
 const [formState, setFormState] = useState(initialState)
+const [selectedSong, setSelectedSong] = useState()
 
+async function getSongDetails() {
+  const selectedSong = await axios.get(`http://localhost:3001/api/songs/${id}`)
+  console.log(selectedSong)
+  setSelectedSong(selectedSong.data.song)
+}
+
+useEffect(() => {
+  getSongDetails()
+})
 
 
 const updateSong = async () => {
@@ -29,6 +38,7 @@ const updateSong = async () => {
   const updatedSong = await axios.put(`http://localhost:3001/api/songs/${id}`,formState)
   console.log(updatedSong)
 
+  navigate(`/library`)
 }
 
 
@@ -40,14 +50,13 @@ const handleSubmit = async (event) => {
   console.log(formState)
   
   updateSong()
-  navigate(`/library`)
 }
 
 return (
   <form onSubmit={handleSubmit}>
     <label 
     htmlFor = 'title'>Title:</label>
-      <input placeholder='' 
+      <input 
     type="text"
     id="title"
     onChange={handleChange}

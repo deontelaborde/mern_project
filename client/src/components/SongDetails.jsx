@@ -16,7 +16,7 @@ async function getSongDetails() {
 
 useEffect(() => {
   getSongDetails()
-})
+},[])
 
 const deleteSong = async (id) => {
   await axios.delete(`http://localhost:3001/api/songs/${id}`)
