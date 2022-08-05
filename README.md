@@ -41,6 +41,8 @@ Functionality of the website will be the following:
 - Our Library
   - Be able to search through produced music and sample insturmentals
     <img width="500"  src="https://user-images.githubusercontent.com/106843007/181792096-7b119503-d210-452d-b167-2c8ad09513e0.png">
+    
+  -Be able to add new Library entries, along with updating and deleting current entries
 
 ### **_Deploy Website_**
 
@@ -52,11 +54,10 @@ Link will be provided TBD
 
 - Music Player
 - Media File Upload Functionality
-- Update Song Functionality
-- Delete Song Functionality
+
 
 - Contact Us Page
-  - Links to social media and email requests
+  - Email requests
 
 ---
 

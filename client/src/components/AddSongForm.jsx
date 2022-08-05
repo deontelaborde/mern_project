@@ -45,6 +45,9 @@ const addSong = async () => {
 }
 
 return (
+  <div>
+
+  <h2> Add Song</h2>
   <form onSubmit={handleSubmit}>
     <label htmlFor = 'title'>Title:</label>
       <input
@@ -88,6 +91,7 @@ return (
     <button type='submit'>Upload</button>
 
   </form>
+    </div>
 )
 }
 

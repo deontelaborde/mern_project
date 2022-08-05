@@ -20,6 +20,7 @@ const Team = () => {
 
   return (
     <div className="list">
+      <h2>Meet the Team</h2>
       {producerlist.map((producer) => (
         <div className="producer-card" onClick={() => showProducer(producer)} key={producer._id}>
           

@@ -20,6 +20,7 @@ const Library = () => {
 
   return (
     <div className="list">
+      <h2>Library</h2>
       {songlist.map((song) => (
         <div className="song-card" onClick={() => showSong(song)} key={song._id}>
           
