@@ -12,7 +12,7 @@ const Team = () => {
   useEffect(() => {
     async function getProducerlist() {
       const producerlist = await axios.get(`http://localhost:3001/api/producers`)
-      console.log(producerlist.data.producers)
+      
       setProducerlist(producerlist.data.producers)
     }
     getProducerlist()
