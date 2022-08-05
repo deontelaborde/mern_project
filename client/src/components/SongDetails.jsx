@@ -1,7 +1,8 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link} from 'react-router-dom'
+
+
 
 const SongDetails = () => {
 let { id } = useParams()
@@ -10,7 +11,7 @@ const [selectedSong,setSelectedSong] = useState([])
 
 async function getSongDetails() {
   const selectedSong = await axios.get(`http://localhost:3001/api/songs/${id}`)
-
+  console.log(selectedSong.data.song)
   setSelectedSong(selectedSong.data.song)
 }
 

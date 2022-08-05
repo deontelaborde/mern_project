@@ -4,99 +4,103 @@ import axios from 'axios'
 
 function UpdateSongForm () {
 
-  const navigate = useNavigate ()
- 
+const navigate = useNavigate ()
+
 let { id } = useParams()
 
-
-const initialState = {
+let initialState = {
   title: '' ,
     song_length:'' ,
     genre:'' ,
     producer:'' ,
-    produced_date:'' ,
-    
-
+    produced_date:''
 }
 
 const [formState, setFormState] = useState(initialState)
-const [selectedSong, setSelectedSong] = useState()
 
-async function getSongDetails() {
+const getSongDetails = async () => {
   const selectedSong = await axios.get(`http://localhost:3001/api/songs/${id}`)
-  console.log(selectedSong)
-  setSelectedSong(selectedSong.data.song)
+  setFormState(selectedSong.data.song)
 }
 
 useEffect(() => {
   getSongDetails()
-})
-
+  },[])
 
 const updateSong = async () => {
   
-  const updatedSong = await axios.put(`http://localhost:3001/api/songs/${id}`,formState)
-  console.log(updatedSong)
+await axios.put(`http://localhost:3001/api/songs/${id}`,formState)
 
   navigate(`/library`)
 }
-
 
 const handleChange = event => {
   setFormState({...formState, [event.target.id]: event.target.value})
 }
 const handleSubmit = async (event) => {
   event.preventDefault()
-  console.log(formState)
   
   updateSong()
+
+  setFormState(initialState)
 }
 
 return (
+
+<div>
+  <h2>Update Song</h2>
+
   <form onSubmit={handleSubmit}>
     <label 
-    htmlFor = 'title'>Title:</label>
+    htmlFor = 'title'>Title: </label>
       <input 
+    value={formState.title}
     type="text"
     id="title"
     onChange={handleChange}
-    value={formState.title}
+    required
     />
     
-    <label htmlFor = 'song_length'>Song Length:</label>
+    <label htmlFor = 'song_length'>Song Length: </label>
     <input
+    value={formState.song_length}
     type="text"
     id="song_length"
     onChange={handleChange}
-    value={formState.song_length}
+    required
     />
 
-  <label htmlFor = 'genre'>Genre:</label>
+  <label htmlFor = 'genre'>Genre: </label>
     <input
+    value={formState.genre}
     type="text"
     id="genre"
     onChange={handleChange}
-    value={formState.genre}
+    required
     />
 
-    <label htmlFor = 'producer'>Producer:</label>
+    <label htmlFor = 'producer'>Producer: </label>
     <input
+    value={formState.producer}
     type="text"
     id="producer"
     onChange={handleChange}
-    value={formState.producer}
+    required
     />
   
-     <label htmlFor = 'produced_date'>Produced Date:</label>
+     <label htmlFor = 'produced_date'>Produced Date: </label>
     <input
+    value={formState.produced_date}
     type="text"
     id="produced_date"
     onChange={handleChange}
-    value={formState.produced_date}
+    required
     />
     <button type='submit'>Make Changes</button>
 
-  </form>
+      </form>
+    </div>
+  
 )
 }
 
